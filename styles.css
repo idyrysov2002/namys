@@ -1,0 +1,66 @@
+body {
+    background-color: black;
+    color: white;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 20px;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+h1 {
+    font-size: 3em;
+    margin: 0;
+}
+
+h2 {
+    border-bottom: 2px solid white;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+}
+
+.tribute {
+    margin-bottom: 40px;
+}
+
+    .tribute p {
+        margin-bottom: 20px;
+        line-height: 1.6;
+    }
+
+.gallery, .audio, .video {
+    margin-bottom: 40px;
+}
+
+.images {
+    display: flex;
+    justify-content: center;
+}
+
+    .images img {
+        max-width: 300px;
+        margin: 0 10px;
+        border: 2px solid white;
+        border-radius: 10px;
+    }
+
+audio, video {
+    display: block;
+    margin: 0 auto;
+    max-width: 80%;
+}
+
+footer {
+    text-align: center;
+    margin-top: 40px;
+    font-size: 0.8em;
+}
+
+p {
+    text-align: center; /* Центрировать текст описаний */
+    font-style: italic; /* Сделать текст курсивом */
+    margin-top: 10px; /* Добавить отступ сверху */
+}
