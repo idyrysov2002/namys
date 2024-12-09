@@ -1,70 +1,86 @@
-<!DOCTYPE html>
-<html lang="ru">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Траурный сайт</title>
-    <link rel="stylesheet" href="styles.css">
-</head>
-<body>
-    <header>
-        <h1>мой дорогой планшет</h1>
-    </header>
+<!DOCTYPE html> 
+<html lang="ru"> 
+<head> 
+    <meta charset="UTF-8"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <title>Траурный сайт</title> 
+    <link rel="stylesheet" href="styles.css"> 
+</head> 
+<body> 
+    <header> 
+        <h1>мой дорогой планшет</h1> 
+    </header> 
+ 
+    <section class="tribute"> 
+        <h2>Несколько слов о моём верном помощнике</h2> 
+        <p> 
+            Графический планшет был не просто инструментом для рисования, но и настоящим другом в мире творчества. Его чувствительная поверхность и точная откликаемость на каждое прикосновение позволяли мне воплощать идеи и мысли в яркие изображения. 
+        </p> 
+        <p> 
+            Каждый штрих, каждая линия, созданные на этом планшете, были актом самовыражения. Он стал основой для множества художественных проектов, и я не могу не вспомнить о времени, проведённом за его экраном. 
+        </p> 
+        <p> 
+            К сожалению, его срок службы подошёл к концу. Однако память о нем будет жить в моих работах и впечатлениях. Этот графический планшет останется в моем сердце как символ вдохновения и творчества. Прощай, мой верный помощник, ты всегда будешь со мной в моих художественных начинаниях. 
+        </p> 
+    </section> 
+ 
+    <section class="gallery"> 
+        <h2>Фотографии</h2> 
+        <div class="images"> 
+            <img src="photo_1.jpg" alt="Графический планшет в последние дни"> 
+            <img src="photo_2.jpg" alt="Графический планшет в последние дни"> 
+        </div> 
+        <p>Графический планшет в последние дни</p> 
+    </section> 
+ 
+    <section class="audio"> 
+        <h2>Музыка</h2> 
+        <audio controls> 
+            <source src="terminator.mp3" type="audio/mpeg"> 
+            Ваш браузер не поддерживает аудиоплеер. 
+        </audio> 
+        <p>Трек: Терминатор - "Судный день".</p> 
+ 
+        <audio controls> 
+            <source src="Kurmangazy_Azykbaev.mp3" type="audio/mpeg"> 
+            Ваш браузер не поддерживает аудиоплеер. 
+        </audio> 
+        <p>Трек: Курмангазы Азыкбаев - "Издейм сени".</p> 
+    </section> 
+ 
+    <section class="video"> 
+        <h2>Видео</h2> 
+        <video controls> 
+            <source src="Set-Fire.mp4" type="video/mp4"> 
+            Ваш браузер не поддерживает видеоплеер. 
+        </video> 
+        <p>Клип: Песня "Set Fire To The Rain" - Adele</p> 
+ 
+        <video controls> 
+            <source src="Frank-Sinatra.mp4" type="video/mp4"> 
+            Ваш браузер не поддерживает видеоплеер. 
+        </video> 
+        <p>Frank Sinatra - "My way".</p> 
+    </section> 
+ 
+    <footer> 
+        <p>© 2023 В память о... Все права защищены.</p> 
+    </footer> 
 
-    <section class="tribute">
-        <h2>Несколько слов о моём верном помощнике</h2>
-        <p>
-            Графический планшет был не просто инструментом для рисования, но и настоящим другом в мире творчества. Его чувствительная поверхность и точная откликаемость на каждое прикосновение позволяли мне воплощать идеи и мысли в яркие изображения.
-        </p>
-        <p>
-            Каждый штрих, каждая линия, созданные на этом планшете, были актом самовыражения. Он стал основой для множества художественных проектов, и я не могу не вспомнить о времени, проведённом за его экраном.
-        </p>
-        <p>
-            К сожалению, его срок службы подошёл к концу. Однако память о нем будет жить в моих работах и впечатлениях. Этот графический планшет останется в моем сердце как символ вдохновения и творчества. Прощай, мой верный помощник, ты всегда будешь со мной в моих художественных начинаниях.
-        </p>
-    </section>
+    <script>
+        // Получаем все элементы audio и video на странице
+        const mediaElements = document.querySelectorAll('audio, video');
 
-    <section class="gallery">
-        <h2>Фотографии</h2>
-        <div class="images">
-            <img src="photo_1.jpg" alt="Графический планшет в последние дни">
-            <img src="photo_2.jpg" alt="Графический планшет в последние дни">
-        </div>
-        <p>Графический планшет в последние дни</p>
-    </section>
-
-    <section class="audio">
-        <h2>Музыка</h2>
-        <audio controls>
-            <source src="terminator.mp3" type="audio/mpeg">
-            Ваш браузер не поддерживает аудиоплеер.
-        </audio>
-        <p>Трек: Терминатор - "Судный день".</p>
-
-        <audio controls>
-            <source src="Kurmangazy_Azykbaev.mp3" type="audio/mpeg">
-            Ваш браузер не поддерживает аудиоплеер.
-        </audio>
-        <p>Трек: Курмангазы Азыкбаев - "Издейм сени".</p>
-    </section>
-
-    <section class="video">
-        <h2>Видео</h2>
-        <video controls>
-            <source src="Set-Fire.mp4" type="video/mp4">
-            Ваш браузер не поддерживает видеоплеер.
-        </video>
-        <p>Клип: Песня "Set Fire To The Rain" - Adele</p>
-
-        <video controls>
-            <source src="Frank-Sinatra.mp4" type="video/mp4">
-            Ваш браузер не поддерживает видеоплеер.
-        </video>
-        <p>Frank Sinatra - "My way". .</p>
-    </section>
-
-    <footer>
-        <p>© 2023 В память о... Все права защищены.</p>
-    </footer>
-</body>
+        mediaElements.forEach(media => {
+            media.addEventListener('play', () => {
+                // Ставим все остальные элементы на паузу
+                mediaElements.forEach(otherMedia => {
+                    if (otherMedia !== media) {
+                        otherMedia.pause();
+                    }
+                });
+            });
+        });
+    </script>
+</body> 
 </html>
