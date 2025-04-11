@@ -2,119 +2,413 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <title>Spirit - Меня покорить нельзя</title>
+    <title>Музыкальная коллекция</title>
     <style>
+        :root {
+            --accent-color: #ff4757;
+            --bg-color: #1a1a1a;
+        }
+
         body {
-            background: linear-gradient(45deg, #1a1a1a, #2d2d2d);
+            background: var(--bg-color);
             color: #fff;
             font-family: 'Arial', sans-serif;
-            line-height: 1.8;
-            padding: 30px;
-            max-width: 800px;
-            margin: 0 auto;
+            margin: 0;
+            min-height: 100vh;
         }
 
-        .container {
-            background: rgba(0, 0, 0, 0.7);
+        .playlist {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            padding: 20px;
+            background: rgba(0,0,0,0.7);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .playlist-item {
+            color: #fff;
+            cursor: pointer;
+            padding: 10px 20px;
+            border-radius: 25px;
+            transition: all 0.3s;
+        }
+
+        .playlist-item.active {
+            background: var(--accent-color);
+            transform: scale(1.1);
+        }
+
+        .song-container {
+            max-width: 800px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        .song-content {
+            display: none;
+            animation: fadeIn 0.5s;
+        }
+
+        .song-content.active {
+            display: block;
+        }
+
+        .lyrics {
+            white-space: pre-line;
+            line-height: 1.8;
+            font-size: 1.1em;
+            background: rgba(255,255,255,0.05);
             padding: 30px;
             border-radius: 15px;
-            box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
-        }
-
-        h1 {
-            color: #e74c3c;
-            text-align: center;
-            font-size: 2.5em;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-            margin-bottom: 30px;
-        }
-
-        .verse {
-            margin: 25px 0;
-            padding: 15px;
-            border-left: 3px solid #e74c3c;
-        }
-
-        .chorus {
-            color: #f1c40f;
-            font-style: italic;
-            margin: 30px 0;
-            padding: 20px;
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 10px;
+            margin: 20px 0;
         }
 
         audio {
             width: 100%;
-            margin-top: 40px;
-            filter: sepia(20%) saturate(70%) grayscale(1) contrast(99%) invert(12%);
+            margin: 30px 0;
         }
 
-        @media (max-width: 600px) {
-            body {
-                padding: 15px;
-            }
-            .container {
-                padding: 15px;
-            }
-            h1 {
-                font-size: 1.8em;
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @media (max-width: 768px) {
+            .playlist {
+                flex-wrap: wrap;
+                gap: 10px;
             }
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <h1>Меня покорить нельзя</h1>
-        
-        <div class="verse">
-            Опять будет бой,<br>
-            Ещё один со злой судьбой,<br>
-            Всё равно убегу<br>
-            В неволе жить я не смогу.<br>
-            Вернуться домой намерен я любой ценой,<br>
-            Но ничего, я найду<br>
-            Как одолеть свою беду.
+    <nav class="playlist">
+        <div class="playlist-item active" data-song="0">Меня покорить нельзя</div>
+        <div class="playlist-item" data-song="1">Трава у дома</div>
+        <div class="playlist-item" data-song="2">Я свободен</div>
+        <div class="playlist-item" data-song="3">Вояджер-1</div>
+        <div class="playlist-item" data-song="4">Make Merry</div>
+    </nav>
+
+    <div class="song-container">
+        <!-- Песня 1 -->
+        <div class="song-content active" data-song="0">
+            <div class="lyrics">
+Опять будет бой,
+Ещё один со злой судьбой,
+Всё равно убегу
+В неволе жить я не смогу.
+Вернуться домой намерен я любой ценой,
+Но ничего,я найду
+Как одолеть свою беду.
+
+Припев:
+Эй пусти меня нет моей былой прыти
+Эй,вы,Не тяните-
+Всё равно не сдамся,
+Никогда не сдамся я вам
+Не вскочить на волну
+Вам на мне не прокатиться:
+Взлечу ввысь словно птица
+Всё равно не сдамся никогда не сдамся я вам:
+Меня покорить нельзя!
+
+Пытаюсь понять,
+Как я им дал себя поймать
+И мне без потерь из пут не вырваться теперь.
+А значит боль,будет бой-
+Ещё один со злой судьбой.
+Себя не буду я жалеть-
+Мне жизнь в неволе не лучше чем смерть.
+
+Припев:
+Эй пусти меня нет моей былой прыти
+Эй,вы,Не тяните-
+Всё равно не сдамся,
+Никогда не сдамся я вам
+Не вскочить на волну
+Вам на мне не прокатиться:
+Взлечу ввысь словно птица
+Всё равно не сдамся никогда не сдамся я вам:
+Меня покорить нельзя!
+            </div>
+            <audio id="player0" controls>
+                <source src="spirit_menya_pokorit_nelzya.mp3" type="audio/mpeg">
+            </audio>
         </div>
 
-        <div class="chorus">
-            Эй пусти меня нет моей былой прыти<br>
-            Эй, вы, Не тяните-<br>
-            Всё равно не сдамся,<br>
-            Никогда не сдамся я вам<br>
-            Не вскочить на волну<br>
-            Вам на мне не прокатиться:<br>
-            Взлечу ввысь словно птица<br>
-            Всё равно не сдамся никогда не сдамся я вам:<br>
-            Меня покорить нельзя!
+        <!-- Песня 2 -->
+        <div class="song-content" data-song="1">
+            <div class="lyrics">
+Земля в иллюминаторе,
+Земля в иллюминаторе,
+Земля в иллюминаторе видна…
+Как сын грустит о матери,
+Как сын грустит о матери,
+Грустим мы о Земле – она одна.
+
+А звёзды тем не менее,
+А звёзды тем не менее
+Чуть ближе, но всё так же холодны.
+И как в часы затмения,
+И как в часы затмения
+Ждём света и земные видим сны.
+
+И снится нам не рокот космодрома,
+Не эта ледяная синева,
+А снится нам трава, трава у дома,
+Зелёная, зелёная трава.
+
+А мы летим орбитами,
+Путями неизбитыми,
+Прошит метеоритами простор.
+Оправдан риск и мужество,
+Космическая музыка
+Вплывает в деловой наш разговор.
+
+В какой-то дымке матовой,
+Земля в иллюминаторе –
+Вечерняя и ранняя заря.
+А сын грустит о матери,
+А сын грустит о матери,
+Ждёт сына мать, а сыновей – Земля.
+
+И снится нам не рокот космодрома,
+Не эта ледяная синева,
+А снится нам трава, трава у дома,
+Зелёная, зелёная трава.
+            </div>
+            <audio id="player1" controls>
+                <source src="trava.mp3" type="audio/mpeg">
+            </audio>
         </div>
 
-        <div class="verse">
-            Пытаюсь понять,<br>
-            Как я им дал себя поймать<br>
-            И мне без потерь из пут не вырваться теперь.<br>
-            А значит боль, будет бой-<br>
-            Ещё один со злой судьбой.<br>
-            Себя не буду я жалеть-<br>
-            Мне жизнь в неволе не лучше чем смерть.
+        <!-- Песня 3 -->
+        <div class="song-content" data-song="2">
+            <div class="lyrics">
+Надо мною тишина
+Небо, полное дождя
+Дождь проходит сквозь меня
+Но боли больше нет
+Под холодный шепот звезд
+Мы сожгли последний мост
+И все в бездну сорвалось
+Свободным стану я
+От зла и от добра
+Моя душа была на лезвии ножа
+Я бы мог с тобою быть
+Я бы мог про все забыть
+Я бы мог тебя любить
+Но это лишь игра
+В шуме ветра за спиной
+Я забуду голос твой
+И о той любви земной
+Что нас сжигала в прах
+И я сходил с ума
+В моей душе нет больше места для тебя
+
+Припев:
+Я свободен, словно птица в небесах!
+Я свободен, я забыл, что значит страх!
+Я свободен с диким ветром наравне!
+Я свободен наяву, а не во сне!
+
+Надо мною тишина
+Небо, полное огня
+Свет проходит сквозь меня
+И я свободен вновь
+Я свободен от любви
+От вражды и от молвы
+От предсказанной судьбы
+И от земных оков, от зла и от добра
+В моей душе…
+            </div>
+            <audio id="player2" controls>
+                <source src="svoboda.mp3" type="audio/mpeg">
+            </audio>
         </div>
 
-        <div class="chorus">
-            Эй пусти меня нет моей былой прыти<br>
-            Эй, вы, Не тяните-<br>
-            Всё равно не сдамся,<br>
-            Никогда не сдамся я вам<br>
-            Не вскочить на волну<br>
-            Вам на мне не прокатиться:<br>
-            Взлечу ввысь словно птица<br>
-            Всё равно не сдамся никогда не сдамся я вам:<br>
-            Меня покорить нельзя!
+        <!-- Песня 4 -->
+        <div class="song-content" data-song="3">
+            <div class="lyrics">
+Столько лет прошло, а холод жжёт в груди.
+Эй, Земля, алло, я «Вояджер-1» —
+Выходи на связь, срочно выходи!
+Наскитался всласть по Млечному пути
+Да так и не сумел себе найти другой ориентир.
+До тебя теперь — миллиарды вёрст,
+И сверхновых нет среди старых звёзд:
+Все — как секонд-хенд, а мне надо first.
+Я незваный гость: изучаю здесь
+Внеземную жизнь через линзы слёз —
+И звучит, как месть,
+Тишина в твоём ответе.
+В моём горле — ком с Юпитер:
+Боль размером в сто квадратных
+Световых тысячелетий.
+Я не на твоей орбите —
+Меня сносит звёздный ветер
+Вдаль, за горизонт твоих событий
+Метя...
+
+Припев:
+И клином сходится свет
+На дальней точке там, позади,
+На самой лучшей из возможных планет —
+Да только там её давно уже нет:
+Её уже не найти.
+И клином сходится свет
+На дальней точке там, позади,
+На самой лучшей из возможных планет —
+Да только там её давно уже нет,
+Там только призрачный след,
+Её уже не найти...
+
+Рёбрами прикрыв Чёрную дыру,
+Все наши миры прямо в ней сожру:
+Ни один фотон не сбежит уже.
+Два октиллиона тонн грузом на душе —
+Как-то ведь тащу, надо же...
+Я тебя прошу — хоть один сигнал,
+Импульс хоть один!
+Выходи на связь, срочно выходи —
+Мне не вывезти...
+Вакуум — кругом, я в нём по уши:
+Эй, Земля, алло, милый дом, услышь мой вой уже, это «Вояджер»!..
+Тишина — в твоём ответе.
+В моём горле — ком с Юпитер:
+Боль размером в сто квадратных
+Световых тысячелетий.
+Я не на твоей орбите —
+Меня сносит звёздный ветер
+Вдаль, за горизонт твоих событий
+Метя...
+
+Припев:
+И клином сходится свет
+На дальней точке там, позади,
+На самой лучшей из возможных планет —
+Да только там её давно уже нет:
+Её уже не найти.
+И клином сходится свет
+На дальней точке там, позади,
+На самой лучшей из возможных планет —
+Да только там её давно уже нет,
+Там только призрачный след,
+Её уже не найти...
+            </div>
+            <audio id="player3" controls>
+                <source src="voyadjer.mp3" type="audio/mpeg">
+            </audio>
         </div>
 
-        <audio controls>
-            <source src="spirit_menya_pokorit_nelzya.mp3" type="audio/mpeg">
-            Ваш браузер не поддерживает аудио элемент.
-        </audio>
+        <!-- Песня 5 -->
+        <div class="song-content" data-song="4">
+            <div class="lyrics">
+So live and make merry
+Do you want to dance it off
+Or hold it in your hand?
+Man, your rabbit hole is ready
+Laugh at all of those in love
+Or bury them in sand?
+Man, your sinking boat rocks steady
+Would you ever lay this down?
+Or shove this thing around?
+I would never say a word
+If you live and make merry
+
+Припев:
+All the stars that would not glow
+All the seeds that would not grow
+So live and make merry
+All the stones that will not shine
+Even after all this time
+So live and make merry
+
+Now your compass begs for more
+Should have left him at the door
+The fall will leave you heady
+Would you ever lay this down?
+Or knock it to the ground?
+I will never make a sound
+If you live and make merry
+
+Припев:
+All the stars that would not glow
+All the seeds that would not grow
+So live and make merry
+All the stones that will not shine
+Even after all this time
+So live and make merry
+
+So what if we can't laugh now?
+So what if this is just hush money?
+What if all the walls just lay down
+And turn you on?
+
+Припев:
+All the stars that would not glow
+All the seeds that would not grow
+So live and make merry
+All the stones that will not shine
+Even after all this time
+So live and make merry
+
+All the stars that would not glow
+All the seeds that would not grow
+So live and make merry
+All the stones that will not shine
+Even after all this time
+So live and make merry
+            </div>
+            <audio id="player4" controls>
+                <source src="mery.mp3" type="audio/mpeg">
+            </audio>
+        </div>
     </div>
+
+    <script>
+        const playlistItems = document.querySelectorAll('.playlist-item');
+        const songContents = document.querySelectorAll('.song-content');
+        const players = document.querySelectorAll('audio');
+        let currentSong = 0;
+
+        // Переключение песен
+        playlistItems.forEach(item => {
+            item.addEventListener('click', () => {
+                const songIndex = parseInt(item.dataset.song);
+                switchSong(songIndex);
+            });
+        });
+
+        // Автопереход на следующую песню
+        players.forEach((player, index) => {
+            player.addEventListener('ended', () => {
+                currentSong = (index + 1) % 5;
+                switchSong(currentSong);
+                players[currentSong].play();
+            });
+        });
+
+        function switchSong(index) {
+            // Сброс предыдущего состояния
+            playlistItems.forEach(item => item.classList.remove('active'));
+            songContents.forEach(content => content.classList.remove('active'));
+            players.forEach(player => player.pause());
+
+            // Установка нового состояния
+            currentSong = index;
+            playlistItems[index].classList.add('active');
+            songContents[index].classList.add('active');
+            players[index].currentTime = 0;
+            players[index].play();
+        }
+
+        // Старт первой песни
+        players[0].play();
+    </script>
 </body>
 </html>
